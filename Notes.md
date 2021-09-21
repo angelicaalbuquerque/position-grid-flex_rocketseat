@@ -26,11 +26,46 @@ Lembrando que o fluxo normal dos elementos (tipo block) é ficar um abaixo do ou
 
 ### Static
 
-Por padrão os elementos são `static`. Isso significa que os elementos irão seguir o fluxo normal do HTML.
+Por padrão, os elementos são `static`. Isso significa que os elementos irão seguir o fluxo normal do HTML, ficando um abaixo do outro.
 
 ### Relative
 
-O `position` indica onde o elemento vai ser posicionado na página. Ao usar o position podemos adicionar outras propriedades como top, right, bottom, left e z-index, que vão determinar o posicionamento final do elemento.
+O `position` indica onde o elemento vai ser posicionado na página.
+
+Ao usar o `position: relative` podemos adicionar outras propriedades como top, right, bottom, left e z-index, que vão determinar o posicionamento final do elemento.
+
+No caso abaixo, eu movo a box1 para a esquerda com 100px e empurro 80px, mas mantenho o fluxo normal das outras caixas, ou seja, as outras caixas não foram afetadas e ficam no seu local correto:
+
+```HTML
+<div class="box box1"></div>
+<div class="box box2"></div>
+<div class="box box3"></div>
+```
+
+```CSS
+.box {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.box1 {
+  background-color: red;
+  position: relative;
+  left: 100px;
+  top: 80px
+}
+
+.box2 {
+  background-color: green;
+}
+
+.box3 {
+  background-color: blue;
+}
+```
+
+E se eu mexo para redimensionar minha tela, ainda tenho o fluxo normal, onde o espaço que "fica em branco" sobre o box verde é o espaço que seria preenchido pelo box 1.
 
 ### Absolute
 
