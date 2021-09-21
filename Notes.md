@@ -34,7 +34,9 @@ O `position` indica onde o elemento vai ser posicionado na página.
 
 Ao usar o `position: relative` podemos adicionar outras propriedades como top, right, bottom, left e z-index, que vão determinar o posicionamento final do elemento.
 
-No caso abaixo, eu movo a box1 para a esquerda com 100px e empurro 80px, mas mantenho o fluxo normal das outras caixas, ou seja, as outras caixas não foram afetadas e ficam no seu local correto:
+No caso abaixo, eu movo a box1 para a esquerda com 100px e empurro 80px, mas mantenho o fluxo normal das outras caixas, ou seja, as outras caixas não foram afetadas e ficam no seu local correto.
+
+[**Ver exemplo**](https://codepen.io/frontangie/pen/YzQLdpo)
 
 ```HTML
 <div class="box box1"></div>
@@ -69,7 +71,17 @@ E se eu mexo para redimensionar minha tela, ainda tenho o fluxo normal, onde o e
 
 ### Absolute
 
-Quando o position é absolute o elemento é deslocado saindo do fluxo normal. O elemento de position absolute é posicionado em relação ao seu parent element mais próximo. Se esse elemento "pai" não existir, ele será posicionando em relação ao bloco contendo a raiz do elemento.
+Quando o posicionamento é `absolute`, ele também libera as propriedades top, right, bottom, left e z-index,, mas o elemento é deslocado, saindo do fluxo normal.
+
+É como se eliminasse aquele "espaço em branco" deixado por um elemento (no nosso exemplo, o box1) e criasse uma nova camada, saindo do fluxo normal.
+
+É como se o box vermelho estivesse numa camada acima/à frente da camada do verde e azul, que esta com fluxo normal.
+
+O box vermelho passa, assim, ser referente à pagina inteira - podendo testar isso com left: 0; top: 0. Se for pra fazer relativo a outro elemento, esse outro elemento deve ter seu posicionamento padrão (static) alterado também.
+
+O elemento de `position: absolute` é posicionado em relação ao seu _parent element_ mais próximo. Se esse elemento "pai" não existir, ele será posicionando em relação ao bloco contendo a raiz do elemento.
+
+[**Ver exemplo**](https://codepen.io/frontangie/pen/KKqRbNq)
 
 ```HTML
 <div class="box box1"></div>
