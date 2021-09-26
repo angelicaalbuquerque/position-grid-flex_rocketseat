@@ -168,9 +168,11 @@ Ou seja, trabalhando com z-index, é sempre eu inserir um valor maior que todos 
 
 **Flexbox**
 
-- Nos permite posicionar os elementos dentro da caixa;
-- Controle em uma dimensão (horizontal ou vertical);
-- Alinhamento, direcionamento, ordenar e tamanhos.
+- Nos permite posicionar os elementos dentro da caixa (imagine que teremos uma caixa "pai" e, dentro dela, os "filhos");
+- Permite o controle em uma dimensão (horizontal ou vertical, sabendo que o padrão HTML é vertical);
+- Conseguimos fazer alinhamento, direcionamento, ordenar e tamanhos.
+
+De início, o que precisamos é pegar nossa `div` pai e aplicar o `display: flex`, para que seus filhos possam receber as popriedades Flexbox.
 
 ```css
 div.parent {
@@ -188,6 +190,8 @@ div.parent {
 - justify-content
 - align-items
 
+Exemplo de aplicação de Flexbox:
+
 ```HTML
 <div class="container">
   <div class="box blue"></div>
@@ -195,6 +199,41 @@ div.parent {
   <div class="box green"></div>
 </div>
 ```
+
+```CSS
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.box {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+```
+
+Para alinhar esse elemento ao centro, poderíamos alterar o body e container da seguinte forma:
 
 ```CSS
 .container {
