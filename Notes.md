@@ -118,7 +118,51 @@ Quando aplicado o position **fixed** é como se criasse um elemento flutuante qu
 
 ### Element Stacking
 
-É o empilhamento de elementos. Podemos usar o z-index para determinar a ordem da posição do elemento. Quanto maior o z-index, mais "acima" vai aparecer o elemento.
+É o empilhamento de elementos, sendo a propriedade "z-index".
+
+Podemos usar o z-index para determinar a ordem da posição do elemento. Quanto maior o z-index, mais "acima" vai aparecer o elemento.
+
+No exemplo abaixo, os elementos estão empilhados em camadas, de modo que o último elemento (box3) tem mais força que o primeiro (box1).
+
+Mas se eu quiser que o vermelho (box1) apareça sobre todos os outros, posso utilizar o z-index alterando sua camada como `z-index: 3;`.
+
+Ou seja, trabalhando com z-index, é sempre eu inserir um valor maior que todos para que o elemento fica sobre todos os outros.
+
+```HTML
+<div class="box box1"></div>
+<div class="box box2"></div>
+<div class="box box3"></div>
+```
+
+```CSS
+.box {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.box1 {
+  background-color: red;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 3;
+}
+
+.box2 {
+  background-color: green;
+  position: absolute;
+  left: 10px;
+  top: 10px
+}
+
+.box3 {
+  background-color: blue;
+  position: absolute;
+  left: 15px;
+  top: 15px
+}
+```
 
 ### Flex
 
