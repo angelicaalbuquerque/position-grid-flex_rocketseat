@@ -259,7 +259,152 @@ Para alinhar esse elemento ao centro, poderíamos alterar o body e container da 
 }
 ```
 
+Dessa forma, consigo sempre alinhar os elementos ao meio. Aplicando Flex em body estou posicionando os elementos dentro dessa caixa body, ou seja, somente o container. Agora, dentro de container, ao aplicar o Flex, estou mexendo em seus elementos.
+
 ### Grid
+
+- Assim como o Flexbox, o Grid faz o posicionamento dos elementos dentro da caixa;
+- Diferentemente do Flex, o Grid faz o posicionamento horizontal e vertical ao mesmo tempo;
+- Pode ser flexível ou fixo;
+- Cria espaços para os elementos filhos habitarem.
+
+O grid cria colunas e linhas, como se fosse uma tabela na qual podemos escolher quais espaços queremos que o ambiente habite.
+
+Exemplo de página com topo/conteúdo/infos adicionais/rodapé, utilizando grid, composta por duas colunas e três linhas (topo, main/aside, infos/rodape).
+
+O grid é adicionado ao pai, que é o body, pois vai trabalhar com o posicionamento dos filhos.
+
+```HTML
+<header>Topo</header>
+<main>Conteúdo</main>
+<aside>Infos adicionais</aside>
+<footer>Rodapé</footer>
+```
+
+```CSS
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: grid;
+}
+
+header {
+  background-color: green;
+}
+
+main {
+  background-color: red;
+}
+
+aside {
+  background-color: blue;
+}
+
+footer {
+  background-color: gray;
+
+}
+```
+
+Com a propriedade `grid-template-areas`, defino as áreas; cada uma dessas areas entre as aspas vai significar uma linha; e dentro delas eu defino as colunas.
+
+```CSS
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+    /*coluna 1 - coluna 2*/
+}
+```
+
+Depois de nomear as áreas no template, é hora de informar a `grid-area` nos estilos de cada tag HTML:
+
+```CSS
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+header {
+  grid-area: header;
+  background-color: green;
+}
+
+main {
+  grid-area: main;
+  background-color: red;
+}
+
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: gray;
+}
+```
+
+Pra ficar ainda melhor, podemos definir o tamanho de cada uma das linhas utilizando a propriedade `grid-template-rows` no body.
+
+A primeira linha quero que tenha 30px, mas a segunda quero que seja flexível, então posso escrever para que pegue uma fração (1fr), ou seja, a fração é uma ideia flexível que vai preencher tudo que estiver de espaço que estiver disponível e não foi definido. Já a última linha quero que tenha 40px.
+
+Eu posso fazer o mesmo para as colunas, utilizando o `grid-template-columns`. Quero a primeira coluna flexível e a segunda fixa com 80px.
+
+Sendo assim:
+
+```CSS
+body {
+  margin: 0;
+  height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+
+  grid-template-rows:
+    "30px 1fr 40px";
+
+  grid-template-rows: "1fr 80px";
+}
+
+header {
+  grid-area: header;
+  background-color: green;
+}
+
+main {
+  grid-area: main;
+  background-color: red;
+}
+
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: gray;
+}
+```
+
+**_[Ver exemplo aqui](https://codepen.io/frontangie/pen/wveRgQq?editors=1100)_**
 
 ### Grid ou Flexbox
 
