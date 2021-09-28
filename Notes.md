@@ -408,7 +408,9 @@ footer {
 
 ### Grid ou Flexbox
 
-Podemos usar o Display Flex e Display Grid ao mesmo tempo.
+Podemos usar o Display Flex e Display Grid ao mesmo tempo, só não no mesmo elemento.
+
+No exemplo abaixo, aplico Flex apenas no Header, já que quero que a Logo no canto esquerdo e o menu no canto direito (`justify-content: space-between`).
 
 ```HTML
 <body>
@@ -459,3 +461,7 @@ footer {
     background-color: gray;
 }
 ```
+
+**_[Ver exemplo aqui](https://codepen.io/frontangie/pen/wveRgQq?editors=1100)_**
+
+Lembrando que: Grid e Flex são posicionamentos dentro da caixa. Agora, inline e block são os posicionamentos da caixa em si, em relação as caixas ao lado (não são as coisas que estão dentro da caixa).
